@@ -5,11 +5,26 @@ import './App.css';
 import secret from './Secrets.js'
 
 function App() {
+  
   const CLIENT_ID = secret.client_id;
   const CLIENT_SECRET = secret.client_secret;
+  const REDIRECT_URI = 'http://localhost:3000/callback';
+  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+  const SCOPE = 'user-read-private user-read-email';
+  let authUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=code&show_dialog=true`
   return (
     <div className="App">
-      <Login id={CLIENT_ID} secret={CLIENT_SECRET}/>
+      <div className="App-Container">
+      <h1>H I P S T E R I F Y</h1>
+      <p>Please login using the button below</p>
+      
+      <a 
+        className="btn btn-success"
+        href={authUrl}
+      >Login to spotify
+      </a>
+      </div>
+      
     </div>
   );
 }
