@@ -1,45 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import Login from './Login'
 import './App.css';
 import secret from './Secrets.js'
+import queryString from 'querystring'
+import Playlists from './Playlists';
 
-function App() {
+
+class App extends Component {
   
-  const CLIENT_ID = secret.client_id;
-  const CLIENT_SECRET = secret.client_secret;
-  const REDIRECT_URI = 'http://localhost:3000/callback';
-  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
-  const SCOPE = 'user-read-private user-read-email';
-  let authUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=code&show_dialog=true`
-  return (
-    <div className="App">
-      <div className="App-Container">
-      <h1>H I P S T E R I F Y</h1>
-      <p>Please login using the button below</p>
-      
-      <a 
-        className="btn btn-success"
-        href={authUrl}
-      >Login to spotify
-      </a>
+  constructor() {
+    super();
+    this.state = {
+      access_token: null
+    }
+  }
+  componentDidMount() {
+    
+    let access_token = window.location.hash.substring(14);
+    console.log(access_token)
+    if (access_token != null) {
+      this.setState({
+        access_token: access_token
+      });
+    }
+  }
+  render() {
+    const CLIENT_ID = secret.client_id;
+    const CLIENT_SECRET = secret.client_secret;
+    const REDIRECT_URI = 'http://localhost:3000/callback';
+    const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+    const SCOPE = 'user-read-private user-read-email';
+    let authUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=token&show_dialog=true`
+    let loggedIn = <h1>Logged in</h1>
+    let loggedOut = <div><h2>PLease login below</h2> 
+    <a className="btn btn-button-success-outline" href={authUrl}>LOGIN</a></div>
+    return (
+          <div className="App">
+            <div className="App-Container">
+              {this.state.access_token ? <Playlists auth={this.state.access_token} /> : loggedOut}
+            </div>
       </div>
-      
-    </div>
-  );
+        );
+  }
 }
 
 export default App;
-/*
-  Application Structure.
-
-  1: User must authenticate themselves using the spotify /Authorization endpoint
-  2: After recieving an access token the user will be redirected to a view wherein
-     they will be able to see a PLAYLISTCOLLECTION component comprised of individual
-     PLAYLIST components.
-  3: When the user clicks an individual PLAYLIST component it will use the /Tracks
-     endpoint to get a JSON aggregation of all tracks
-  4: They will then be sorted by popularity ASC
-  5: The application will then display a TRACK component which shows the information
-     of the least popular track in the given playlist
-*/
