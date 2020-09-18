@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import './Playlists.css'
+import './PlaylistView.css'
+import Playlist from './Playlist'
 class Playlists extends Component {
     constructor() {
         super();
@@ -39,23 +40,12 @@ class Playlists extends Component {
     render() {
         let playlists = this.state.items.map((playlist) => {
             return(
-                <li key={playlist.id} className="row" style={{padding: "10px"}}>
-                    <div className="col-sm-auto">
-                        <img width="200" height="200" src={playlist.images[0].url}></img>
-                    </div>
-                    
-                    <div className="col-sm-auto">
-            <h3>{playlist.name}</h3>
-                    </div>
-                </li>
+                <Playlist id={playlist.id} name={playlist.name} image={playlist.images[0].url} auth={this.props.auth}/>
             )
         })
         return(
-            <div>
-            <ul className="list-group" id="playlist-list">
-                    <h3 className="list-group-heading">Your playlists</h3>
-                    {playlists}
-                </ul>
+            <div className="row">
+                {playlists}
             </div>
         )
     }
