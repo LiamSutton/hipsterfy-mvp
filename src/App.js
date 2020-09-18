@@ -33,7 +33,7 @@ class App extends Component {
     let authUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=token&show_dialog=true`
     let loggedIn = <h1>Logged in</h1>
     let loggedOut = <div><h2>PLease login below</h2> 
-    <a className="btn btn-button-success-outline" href={authUrl}>LOGIN</a></div>
+    <a className="btn btn-outline-primary" href={authUrl}>LOGIN</a></div>
     return (
           <div className="App">
             <div className="container" style={{margin: 'auto'}}>

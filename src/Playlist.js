@@ -30,14 +30,14 @@ class Playlist extends Component {
         })
     }
     handleClick(e) {
-        console.log(this.state.leastPopularTrack)
+        alert(this.state.leastPopularTrack.name)
     }
     render() {
         return(
-                <div style={{margin: "5px", verticalAlign: 'middle', border: '', borderRadius: '10px'}} className="card bg-dark text-white">
+                <div style={{margin: "5px", verticalAlign: 'middle', border: '5px solid black', borderRadius: '10px'}} className="card bg-dark text-white" onClick={this.handleClick}>
                     <img className="playlist-image" height="320" width="320" src={this.props.image}/>
                     <div className="card-img-overlay text-centre" style={{alignItems: 'center'}}>
-                        <h2 className="align-text-bottom">{this.props.name}</h2>
+                        <h2 className="">{this.props.name}</h2>
                     </div>
                 </div>
                 
