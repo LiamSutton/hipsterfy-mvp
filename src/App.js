@@ -18,7 +18,6 @@ class App extends Component {
   componentDidMount() {
     
     let access_token = window.location.hash.substring(14);
-    console.log(access_token)
     if (access_token != null) {
       this.setState({
         access_token: access_token
