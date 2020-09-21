@@ -38,9 +38,9 @@ class Playlist extends Component {
     }
     render() {
         return(
-            <div>
-                <div style={{margin: "5px", verticalAlign: 'middle', border: '5px solid black', borderRadius: '10px'}} className="card bg-dark text-white" onClick={this.handleClick}>
-                <img className="playlist-image" height="320" width="320" src={this.props.image} />
+            <div className="col-sm-auto">
+                <div style={{marginBottom: '10px', marginTop: '10px', verticalAlign: 'middle', border: '5px solid black', borderRadius: '10px'}} className="card bg-dark text-white" onClick={this.handleClick}>
+                <img className="rounded mx-auto d-block playlist-image" height="320" width="320" src={this.props.image} />
                     <div className="card-img-overlay d-flex" style={{alignItems: 'center'}}>
                         <h2 className="align-self-center mx-auto">{this.props.name}</h2>
                     </div>
