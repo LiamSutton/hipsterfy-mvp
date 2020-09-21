@@ -19,3 +19,17 @@ you will be provided a view of all your playlists wherein all you need to do is 
 ![Authorization](https://i.gyazo.com/bc0ee287ed210f57d987659d5c72a59e.png)
 ![Playlist View](https://i.gyazo.com/88aa31c54d4026fa5e1a9a097cf37646.png)
 ![Least Popular View](https://i.gyazo.com/0c035271411ffac0fc3f3711b9fd6fd9.png)
+
+
+### Tools used ###
+1. Spotify API
+2. React
+3. Ajax
+
+### Retrospective ###
+Is it perfect? absolutely not, this was hacked together over the space of a few days and was just an idea i had to try learn the spotify API and React.
+I'm sure the implementation could be alot cleaner and it was only near the end of the project I used React-Strap, on mobile the sizing isnt perfect and a million other things.
+
+One day I might refactor the application to fit best practices but at this moment it's a small kinda cool but uesless thing but none the less it's taught me some important lessons :)
+
+Liam
