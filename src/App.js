@@ -4,7 +4,7 @@ import Login from './Login'
 import './App.css';
 import secret from './Secrets.js'
 import queryString from 'querystring'
-import Playlists from './Playlists';
+import PlaylistView from './PlaylistView';
 
 
 class App extends Component {
@@ -33,11 +33,11 @@ class App extends Component {
     let authUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=token&show_dialog=true`
     let loggedIn = <h1>Logged in</h1>
     let loggedOut = <div><h2>PLease login below</h2> 
-    <a className="btn btn-button-success-outline" href={authUrl}>LOGIN</a></div>
+    <a className="btn btn-outline-primary" href={authUrl}>LOGIN</a></div>
     return (
           <div className="App">
-            <div className="App-Container">
-              {this.state.access_token ? <Playlists auth={this.state.access_token} /> : loggedOut}
+            <div className="container" style={{margin: 'auto'}}>
+              {this.state.access_token ? <PlaylistView auth={this.state.access_token} /> : loggedOut}
             </div>
       </div>
         );
