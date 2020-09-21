@@ -5,6 +5,8 @@ import './App.css';
 import secret from './Secrets.js'
 import queryString from 'querystring'
 import PlaylistView from './PlaylistView';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 class App extends Component {
