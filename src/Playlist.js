@@ -32,14 +32,17 @@ class Playlist extends Component {
     handleClick(e) {
         alert(this.state.leastPopularTrack.name)
     }
+
     render() {
         return(
-                <div style={{margin: "5px", verticalAlign: 'middle', border: '5px solid black', borderRadius: '10px'}} className="card bg-dark text-white" onClick={this.handleClick}>
-                    <img className="playlist-image" height="320" width="320" src={this.props.image}/>
-                    <div className="card-img-overlay text-centre" style={{alignItems: 'center'}}>
-                        <h2 className="">{this.props.name}</h2>
+            <div className="Playlist mx-auto my-auto">
+                 <div className="Playlist-Card card bg-dark text-white" onClick={this.handleClick}>
+                    <img className="Playlist-Image" height="320" width="320" src={this.props.image}/>
+                    <div className="card-img-overlay">
+                        <h2 className="Playlist-Image-Caption">{this.props.name}</h2>
                     </div>
                 </div>
+            </div>
                 
         )
     }

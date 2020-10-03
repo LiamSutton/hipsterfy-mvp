@@ -46,7 +46,7 @@ class Playlists extends Component {
         return(
             <div>
                 <h1 className="display-3 text-white">H I P S T E R - I F Y</h1>
-                <div className="row">
+                <div className="card-group">
                     {playlists}
                 </div>
             </div>

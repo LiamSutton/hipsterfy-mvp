@@ -1,3 +1,20 @@
-.playlist-image {
-    filter: brightness(40%);
+
+.Playlist-Card {
+    margin: 5px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+.Playlist-Image {
+    filter: brightness(30%);
+    align-self: center;
+}
+
+.Playlist-Image-Caption {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
